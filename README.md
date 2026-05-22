@@ -45,3 +45,34 @@ uv run evaluate submissions/mine/sa_solver.py --all
 # Evaluate on modern commercial NG45 designs
 uv run evaluate submissions/mine/sa_solver.py --ng45
 ```
+
+## Results
+
+Evaluation on the IBM ICCAD04 benchmarks demonstrates the effectiveness of the SA engine. The solver produces valid (0 overlaps) placements rapidly (under 35 seconds total runtime) and outperforms the SA baseline by 29.1% on average, while remaining highly competitive with RePlAce.
+
+```text
+--------------------------------------------------------------------------------
+    Benchmark     Proxy        SA   RePlAce     vs SA  vs RePlAce  Overlaps
+--------------------------------------------------------------------------------
+        ibm01    1.2253    1.3166    0.9976     +6.9%      -22.8%         0
+        ibm02    1.6800    1.9072    1.8370    +11.9%       +8.5%         0
+        ibm03    1.4100    1.7401    1.3222    +19.0%       -6.6%         0
+        ibm04    1.4101    1.5037    1.3024     +6.2%       -8.3%         0
+        ibm06    1.7197    2.5057    1.6187    +31.4%       -6.2%         0
+        ibm07    1.4950    2.0229    1.4633    +26.1%       -2.2%         0
+        ibm08    1.5582    1.9239    1.4285    +19.0%       -9.1%         0
+        ibm09    1.1363    1.3875    1.1194    +18.1%       -1.5%         0
+        ibm10    1.4037    2.1108    1.5009    +33.5%       +6.5%         0
+        ibm11    1.2354    1.7111    1.1774    +27.8%       -4.9%         0
+        ibm12    1.6507    2.8261    1.7261    +41.6%       +4.4%         0
+        ibm13    1.4011    1.9141    1.3355    +26.8%       -4.9%         0
+        ibm14    1.6033    2.2750    1.5436    +29.5%       -3.9%         0
+        ibm15    1.6061    2.3000    1.5159    +30.2%       -5.9%         0
+        ibm16    1.5323    2.2337    1.4780    +31.4%       -3.7%         0
+        ibm17    1.7437    3.6726    1.6446    +52.5%       -6.0%         0
+        ibm18    1.7941    2.7755    1.7722    +35.4%       -1.2%         0
+--------------------------------------------------------------------------------
+          AVG    1.5062    2.1251    1.4578    +29.1%       -3.3%         0
+
+Total runtime: 34.71s
+```
